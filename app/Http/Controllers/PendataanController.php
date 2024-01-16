@@ -17,13 +17,12 @@ class PendataanController extends Controller
         
         // Validate the form data
         $validatedData = $request->validate([
-            // Add validation rules based on your form fields
+            // Add validation rules 
             'no_kk' => 'required|string|max:255',
             'nama_kepala_keluarga' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
             'rt_rw' => 'required|string|max:10',
             'kode_pos' => 'required|string|max:10',
-            // Add validation rules for Identitas Penghuni and Kondisi Rumah fields
         ]);
 
         // Create PendataanRumah record
@@ -47,7 +46,7 @@ class PendataanController extends Controller
 
         DB::commit();
 
-        // Redirect or perform any other action after successful data input
+        // Redirect after successful data input
         return redirect('/')->with('success', 'Data has been successfully recorded.');
 }catch (\Exception $e){
     DB::rollBack();

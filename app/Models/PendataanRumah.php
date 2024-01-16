@@ -33,7 +33,6 @@ class PendataanRumah extends Model
 
     public function getMaskedNIKAttribute()
     {
-        // Assuming you have a relation to IdentitasPenghuni
         $firstNIK = $this->identitasPenghuni->first()->nik ?? '';
 
         return substr_replace($firstNIK, str_repeat('*', 10), 3, 10);
